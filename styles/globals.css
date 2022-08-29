@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .fit {
-  /* min-height: calc(100vh - 88px); */
+  min-height: calc(100vh - 92px - 24px);
 }
