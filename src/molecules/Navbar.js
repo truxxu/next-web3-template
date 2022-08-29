@@ -1,8 +1,11 @@
 import React from "react";
 
 import { PriceCard } from "../atoms";
+import { useWeb3 } from "../context/web3-context";
 
 const Navbar = () => {
+  const { connect, isLoading, requireInstall } = useWeb3();
+
   return (
     <section>
       <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
