@@ -27,3 +27,25 @@ export const useAccount = () => {
     account: swrRes,
   };
 };
+
+export const useNetwork = () => {
+  const swrRes = enhanceHook(useHooks((hooks) => hooks.useNetwork)());
+  return {
+    network: swrRes,
+  };
+};
+
+export const useWalletInfo = () => {
+  const { account } = useAccount();
+  const { network } = useNetwork();
+
+  const isConnecting =
+    !account.hasInitialResponse && !network.hasInitialResponse;
+
+  return {
+    account,
+    network,
+    isConnecting,
+    hasConnectedWallet: !!(account.data && network.isSupported),
+  };
+};
