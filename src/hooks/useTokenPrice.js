@@ -10,7 +10,7 @@ const fetcher = async (url) => {
 };
 
 export const useTokenPrice = () => {
-  const { data, ...rest } = useSWR(URL, fetcher, { refreshInterval: 15000 });
+  const { data, ...rest } = useSWR(URL, fetcher, { refreshInterval: 20000 });
 
   return { token: { data, ...rest } };
 };

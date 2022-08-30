@@ -3,8 +3,12 @@ import React from "react";
 import { PriceCard, Button } from "../atoms";
 import { useWeb3 } from "../context/web3-context";
 
+import { useAccount } from "../hooks";
+import { trimAddress } from "../utils/parsing";
+
 const Navbar = () => {
   const { connect, isLoading, requireInstall } = useWeb3();
+  const { account } = useAccount();
 
   return (
     <section>
@@ -25,6 +29,8 @@ const Navbar = () => {
             <PriceCard />
             {isLoading ? (
               <Button disabled>Loading...</Button>
+            ) : account.data ? (
+              <Button hoverable={false}>{trimAddress(account.data)}</Button>
             ) : requireInstall ? (
               <Button
                 onClick={() =>

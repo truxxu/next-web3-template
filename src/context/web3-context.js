@@ -8,19 +8,33 @@ import React, {
 import Web3 from "web3";
 import detectEthereumProvider from "@metamask/detect-provider";
 
+import { setupHooks } from "../hooks/setupHooks";
+
 const Web3Context = createContext(null);
 
 const setListeners = (provider) => {
   provider.on("chainChanged", (_) => window.location.reload());
 };
 
+const createWeb3State = ({ web3, provider, contract, isLoading }) => {
+  return {
+    web3,
+    provider,
+    contract,
+    isLoading,
+    hooks: setupHooks({ web3, provider, contract }),
+  };
+};
+
 export const Web3ContextProvider = ({ children }) => {
-  const [web3Api, setWeb3Api] = useState({
-    web3: null,
-    provider: null,
-    // contract: null,
-    isLoading: true,
-  });
+  const [web3Api, setWeb3Api] = useState(
+    createWeb3State({
+      web3: null,
+      provider: null,
+      // contract: null,
+      isLoading: true,
+    })
+  );
 
   useEffect(() => {
     const loadProvider = async () => {
@@ -30,12 +44,14 @@ export const Web3ContextProvider = ({ children }) => {
         // const contract = await loadContract("CourseMarketplace", web3)
 
         setListeners(provider);
-        setWeb3Api({
-          web3,
-          provider,
-          // contract,
-          isLoading: false,
-        });
+        setWeb3Api(
+          createWeb3State({
+            web3,
+            provider,
+            // contract,
+            isLoading: false,
+          })
+        );
       } else {
         setWeb3Api((api) => ({ ...api, isLoading: false }));
         console.error("Please, install Metamask.");
@@ -72,4 +88,9 @@ export const Web3ContextProvider = ({ children }) => {
 
 export const useWeb3 = () => {
   return useContext(Web3Context);
+};
+
+export const useHooks = (cb) => {
+  const { hooks } = useWeb3();
+  return cb(hooks);
 };
