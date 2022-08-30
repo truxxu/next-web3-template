@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PriceCard } from "../atoms";
+import { PriceCard, Button } from "../atoms";
 import { useWeb3 } from "../context/web3-context";
 
 const Navbar = () => {
@@ -23,6 +23,19 @@ const Navbar = () => {
               </a>
             </div>
             <PriceCard />
+            {isLoading ? (
+              <Button disabled>Loading...</Button>
+            ) : requireInstall ? (
+              <Button
+                onClick={() =>
+                  window.open("https://metamask.io/download.html", "_blank")
+                }
+              >
+                Install Metamask
+              </Button>
+            ) : (
+              <Button onClick={connect}>Connect</Button>
+            )}
           </div>
         </nav>
       </div>

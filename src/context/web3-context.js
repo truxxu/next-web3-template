@@ -30,14 +30,12 @@ export const Web3ContextProvider = ({ children }) => {
         // const contract = await loadContract("CourseMarketplace", web3)
 
         setListeners(provider);
-        setWeb3Api(
-          createWeb3State({
-            web3,
-            provider,
-            // contract,
-            isLoading: false,
-          })
-        );
+        setWeb3Api({
+          web3,
+          provider,
+          // contract,
+          isLoading: false,
+        });
       } else {
         setWeb3Api((api) => ({ ...api, isLoading: false }));
         console.error("Please, install Metamask.");
