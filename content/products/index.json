@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1410474",
+    "type": "phone",
+    "title": "LineageOS",
+    "description": "Phone running alternative OS with full encryption.",
+    "coverImage": "https://picsum.photos/200/300",
+    "features": [
+      "Android based OS",
+      "Runs mostly free and open-source software",
+      "Receives the latest Android updates"
+    ],
+    "available": true
+  },
+  {
+    "id": "1331625",
+    "type": "phone",
+    "title": "CalyxOS",
+    "description": "Phone running alternative OS with full encryption.",
+    "coverImage": "https://picsum.photos/200/300",
+    "features": [
+      "Android based OS",
+      "Runs mostly free and open-source software",
+      "Receives the latest Android updates"
+    ],
+    "available": true
+  },
+  {
+    "id": "1112431",
+    "type": "phone",
+    "title": "GrapheneOS",
+    "description": "Phone running alternative OS with full encryption.",
+    "coverImage": "https://picsum.photos/200/300",
+    "features": [
+      "Android based OS",
+      "Runs mostly free and open-source software",
+      "Receives the latest Android updates"
+    ],
+    "available": true
+  }
+]
