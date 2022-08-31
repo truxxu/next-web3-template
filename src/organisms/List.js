@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ProductCard } from "../molecules";
+
 const List = ({ products }) => {
   if (!products) {
     return (
@@ -10,16 +12,9 @@ const List = ({ products }) => {
   }
 
   return (
-    <div className="flex flex-row">
+    <div className="grid gap-6 md:grid-cols-2 my-4 grid-cols-1">
       {products?.map((item) => {
-        return (
-          <div
-            key={item.id}
-            className="border-solid border-2 border-violet-500 rounded"
-          >
-            List
-          </div>
-        );
+        return <ProductCard key={item.id} data={item} />;
       })}
     </div>
   );

@@ -10,7 +10,9 @@
       "Runs mostly free and open-source software",
       "Receives the latest Android updates"
     ],
-    "available": true
+    "available": true,
+    "price": "550",
+    "currency": "USD"
   },
   {
     "id": "1331625",
@@ -23,7 +25,9 @@
       "Runs mostly free and open-source software",
       "Receives the latest Android updates"
     ],
-    "available": true
+    "available": true,
+    "price": "650",
+    "currency": "USD"
   },
   {
     "id": "1112431",
@@ -36,6 +40,8 @@
       "Runs mostly free and open-source software",
       "Receives the latest Android updates"
     ],
-    "available": true
+    "available": true,
+    "price": "1000",
+    "currency": "USD"
   }
 ]
