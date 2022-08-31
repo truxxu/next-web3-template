@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PriceCard, Button } from "../atoms";
+import { PriceCard, Button, ActiveLink } from "../atoms";
 import { useWeb3 } from "../context/web3-context";
 
 import { useAccount } from "../hooks";
@@ -16,15 +16,16 @@ const Navbar = () => {
         <nav className="relative" aria-label="Global">
           <div className="flex flex-row justify-between">
             <div className="flex items-center">
-              <a className="font-medium mr-8 text-gray-500 hover:text-gray-900">
-                Home
-              </a>
-              <a className="font-medium mr-8 text-gray-500 hover:text-gray-900">
-                Store
-              </a>
-              <a className="font-medium mr-8 text-gray-500 hover:text-gray-900">
-                Blog
-              </a>
+              <ActiveLink href="/">
+                <a className="font-medium mr-8 text-gray-500 hover:text-gray-900">
+                  Home
+                </a>
+              </ActiveLink>
+              <ActiveLink href="/store">
+                <a className="font-medium mr-8 text-gray-500 hover:text-gray-900">
+                  Store
+                </a>
+              </ActiveLink>
             </div>
             <div className="flex flex-row">
               <PriceCard />

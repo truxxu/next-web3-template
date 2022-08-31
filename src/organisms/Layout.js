@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import { Navbar, Footer, WalletBar } from "../molecules";
+import { Navbar, Footer } from "../molecules";
 import { Web3ContextProvider } from "../context/web3-context";
 
 const Layout = ({ children }) => {
@@ -14,7 +14,6 @@ const Layout = ({ children }) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar />
-        <WalletBar />
         <div className="fit">{children}</div>
         <Footer />
       </div>
