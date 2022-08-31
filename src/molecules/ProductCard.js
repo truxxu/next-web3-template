@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { Button } from "../atoms";
 
 const ProductCard = ({ data }) => {
+  const router = useRouter();
+
   return (
     <div className="border-solid border-2 border-violet-500 rounded-xl shadow-md overflow-hidden">
       <div className="flex h-full">
@@ -29,7 +31,9 @@ const ProductCard = ({ data }) => {
               <div className="text-4xl font-bold mb-4 text-indigo-500">
                 {data.currency} ${data.price}
               </div>
-              <Button onClick={() => console.log("click!")}>Buy now</Button>
+              <Button onClick={() => router.push(`/store/products/${data.id}`)}>
+                Buy now
+              </Button>
             </div>
           </div>
         </div>
